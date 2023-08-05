@@ -32,7 +32,8 @@ export const fetchMovieData = async (item) => {
 
       if (movieId) {
         item.id = movieId;
-        await fetchMovieDetails(item, movieId);
+        const detailsPromise = fetchMovieDetails(item, movieId);
+        await detailsPromise;
       }
     } catch (error) {
       errorArray.push(item);
